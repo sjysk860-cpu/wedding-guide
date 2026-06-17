@@ -66,16 +66,31 @@ dialog::backdrop{background:rgba(36,20,48,.45);backdrop-filter:blur(3px)}
 }
 
   /* 卓ボタンを小さく */
-  .hotspot{
-    min-width:48px;
-    min-height:28px;
-    padding:3px 6px;
-    font-size:9px;
-    border-width:1.5px;
-    box-shadow:
-      0 0 0 2px rgba(255,255,255,.38),
-      0 4px 10px rgba(77,48,103,.14);
-  }
+.hotspot{
+  position:absolute;
+  transform:translate(-50%,-50%);
+
+  width:8%;
+  aspect-ratio:2.25 / 1;
+
+  padding:0;
+  border-radius:999px;
+  border:2px solid rgba(184,137,53,.95);
+  background:rgba(255,250,240,.86);
+  color:var(--purple);
+
+  font-size:clamp(7px,1.45vw,18px);
+  font-weight:bold;
+  letter-spacing:.05em;
+
+  cursor:pointer;
+  box-shadow:
+    0 0 0 .35vw rgba(255,255,255,.35),
+    0 .4vw 1vw rgba(77,48,103,.18);
+
+  z-index:5;
+  touch-action:manipulation;
+}
 
   .hint{
     font-size:15px;
