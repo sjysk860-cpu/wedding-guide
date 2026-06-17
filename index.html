@@ -58,9 +58,9 @@ dialog::backdrop{background:rgba(36,20,48,.45);backdrop-filter:blur(3px)}
 .modal-head .icon{font-size:26px;color:var(--gold)}
 .modal-head h2{margin:4px 0 2px;color:var(--purple);font-size:30px;letter-spacing:.06em}
 .modal-body{padding:20px}
-.round-table{width:250px;height:250px;margin:0 auto 18px;position:relative;border-radius:50%;border:2px solid rgba(184,137,53,.55);background:radial-gradient(circle,#fffdf7 0 45%,#f7ecff 46% 100%)}
+/* .round-table{width:250px;height:250px;margin:0 auto 18px;position:relative;border-radius:50%;border:2px solid rgba(184,137,53,.55);background:radial-gradient(circle,#fffdf7 0 45%,#f7ecff 46% 100%)}
 .seat{position:absolute;width:78px;min-height:40px;padding:5px 6px;border-radius:12px;background:white;border:1px solid rgba(184,137,53,.55);font-size:11px;text-align:center;line-height:1.25;box-shadow:0 4px 10px rgba(90,60,100,.12);cursor:pointer}
-.seat strong{color:var(--purple);display:block;font-size:12px}
+.seat strong{color:var(--purple);display:block;font-size:12px} */
 .guest-list{display:grid;gap:8px}
 .guest{padding:10px 12px;border:1px solid rgba(184,137,53,.35);border-radius:14px;background:white;cursor:pointer}
 .guest:hover{background:#f5effc}
@@ -216,7 +216,8 @@ const TABLES = {
  "GOOFY": ["花薗 寿紀 様", "花薗 隆太 様", "花薗 由梨奈 様", "花薗 穂風 ちゃん", "花薗 満寿美 様", "花薗 隆明 様"], 
  "MINNIE": ["中野 龍介 様", "中野 峻 様", "伊橋 優人 様", "新竹 哲明 様"], 
  "DAISY": ["小屋 あかり 様", "小屋 勇太 様", "津田 涼賀 様", "豊高 裕 様", "中島 健汰 様", "濱崎 愛菜 様", "濱崎 佑太 様", "林 民和 様", "武笠 真琴 様"],
-  "CHIP": ["今井 梨佳 様", "津村 育美 様", "林 愛美 様", "安田 千尋 様", "安田 大貴 様"], "MAX": ["工藤 賢太 様", "工藤 雅子 様", "工藤 スミエ 様", "勝又 千晴 様", "勝又 洋貴 様", "勝又 絹代 様", "勝又 千晶 様"]};
+  "CHIP": ["今井 梨佳 様", "津村 育美 様", "林 愛美 様", "安田 千尋 様", "安田 大貴 様"], 
+  "MAX": ["工藤 賢太 様", "工藤 雅子 様", "工藤 スミエ 様", "勝又 千晴 様", "勝又 洋貴 様", "勝又 絹代 様", "勝又 千晶 様"]};
 
 function seatPosition(i,n){
   const table = document.getElementById('roundTable');
