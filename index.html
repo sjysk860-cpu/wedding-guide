@@ -18,9 +18,9 @@ h1{margin:6px 0 4px;font-size:32px;font-weight:500;color:var(--purple)}
 .hotspot{
   position:absolute;
   transform:translate(-50%,-50%);
-  width:7.2%;
+  width:9.2%;
   height:auto;
-  aspect-ratio:2.25 / 1;
+  aspect-ratio:2.7 / 1;
 
   min-width:0;
   min-height:0;
@@ -33,7 +33,7 @@ h1{margin:6px 0 4px;font-size:32px;font-weight:500;color:var(--purple)}
 
   font-size:clamp(6px,1.05vw,15px);
   font-weight:bold;
-  letter-spacing:.03em;
+  letter-spacing:.01em;
   line-height:1;
 
   display:flex;
@@ -48,7 +48,7 @@ h1{margin:6px 0 4px;font-size:32px;font-weight:500;color:var(--purple)}
   z-index:5;
   touch-action:manipulation;
   white-space:nowrap;
-  overflow:hidden;
+  overflow:visible;
 }
 .hotspot:hover,.hotspot:focus{background:rgba(87,57,134,.88);color:white;outline:none}
 .hint{text-align:center;margin:14px 0 0;font-size:14px;color:#6f5a4d}
@@ -97,6 +97,14 @@ dialog::backdrop{background:rgba(36,20,48,.45);backdrop-filter:blur(3px)}
   .map{
   width:min(100%, 900px);
   margin:0 auto;
+}
+  
+  .hotspot{
+  border-width:1px;
+
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.35),
+    0 2px 6px rgba(77,48,103,.12);
 }
   
   .hint{
