@@ -181,14 +181,14 @@ dialog::backdrop{background:rgba(36,20,48,.45);backdrop-filter:blur(3px)}
 <div class="wrap">
   <div class="map">
     <img src="seating-guide.png" alt="席次表">
-    <button class="hotspot" style="left:41.0%;top:28.5%;" data-table="MICKEY">MICKEY</button>
-<button class="hotspot" style="left:61.0%;top:28.0%;" data-table="MINNIE">MINNIE</button>
-<button class="hotspot" style="left:35.4%;top:40.7%;" data-table="DONALD">DONALD</button>
-<button class="hotspot" style="left:50.4%;top:40.7%;" data-table="PLUTE">PLUTO</button>
-<button class="hotspot" style="left:63.8%;top:41%;" data-table="DAISY">DAISY</button>
-<button class="hotspot" style="left:44.0%;top:52.5%;" data-table="DALE">DALE</button>
-<button class="hotspot" style="left:57.8%;top:52.5%;" data-table="CHIP">CHIP</button>
-<button class="hotspot" style="left:44.0%;top:66%;" data-table="GOOFY">GOOFY</button>
+    <button class="hotspot" style="left:43.0%;top:28.5%;" data-table="MICKEY">MICKEY</button>
+<button class="hotspot" style="left:59.0%;top:28.0%;" data-table="MINNIE">MINNIE</button>
+<button class="hotspot" style="left:40.4%;top:40.7%;" data-table="DONALD">DONALD</button>
+<button class="hotspot" style="left:51.0%;top:42.7%;" data-table="PLUTE">PLUTO</button>
+<button class="hotspot" style="left:62.3%;top:41%;" data-table="DAISY">DAISY</button>
+<button class="hotspot" style="left:42.0%;top:55.5%;" data-table="DALE">DALE</button>
+<button class="hotspot" style="left:60.8%;top:55.5%;" data-table="CHIP">CHIP</button>
+<button class="hotspot" style="left:51.0%;top:60%;" data-table="GOOFY">GOOFY</button>
   </div>
   <p class="hint">※お名前をタップすると、その席がハイライトされます</p>
 </div>
@@ -210,8 +210,8 @@ dialog::backdrop{background:rgba(36,20,48,.45);backdrop-filter:blur(3px)}
 <script>
 const TABLES = {
 "MICKEY":   {
-  list: ["谷口 昂汰 様", "中山 耕祐 様", "當間 直人 様", "松沢 宗紀 様", "庄屋 祐紀 様", "下吉 智陽 様", "蓬莱 佳佑 様", "吉留 嗣拡 様"],
-  seats:[]
+  list: ["谷口 昂汰 様", "中山 耕祐 様", "當間 直人 様", "松沢 宗紀 様", "黒江 健斗 様", "福盛 涼 様", "蓬莱 佳佑 様", "吉留 嗣拡 様"],
+  seats:["當間 直人 様", "松沢 宗紀 様", "谷口 昂汰 様", "中山 耕祐 様", "吉留 嗣拡 様", "蓬莱 佳佑 様", "黒江 健斗 様", "福盛 涼 様"]
   },
  "PLUTE": {
   list: ["加藤 湖奈未 様", "黒木 優也 様", "黒木 美咲 様", "黒木 若葉 ちゃん", "松﨑 将也 様", "湯地 涼介 様"], 
@@ -219,7 +219,7 @@ const TABLES = {
   },
  "DONALD":  {
   list: ["井 健嗣 様", "黒江 健斗 様", "小林 凌 様", "下井倉 慶紀 様", "下村 太喜 様", "杣川 拳一 様", "福盛 涼 様", "松元 佳汰 様"], 
-  seats:[]
+  seats:["下村 太喜 様", "下吉 智陽 様", "松元 佳汰 様", "庄屋 祐紀 様", "杣川 拳一 様", "井 健嗣 様", "下井倉 慶紀 様", "小林 凌 様"]
   },
  "DALE": {
   list: ["花薗 寿紀 様", "花薗 隆太 様", "花薗 由梨奈 様", "花薗 穂風 ちゃん", "花薗 満寿美 様", "花薗 隆明 様"], 
@@ -259,7 +259,7 @@ function seatPosition(i,n){
     6:  [-140, -40, 20, 70, 120, 180],
     7:  [-145, -80, -20, 35, 85, 135, 190],
     8:  [-150, -105, -55, -10, 35, 80, 125, 170],
-    9:  [-160, -120, -80, -35, 10, 55, 95, 135, 175]
+    9:  [-150, -120, -80, -35, 10, 55, 95, 135, 175]
   };
 
   const angles = anglePatterns[n];
