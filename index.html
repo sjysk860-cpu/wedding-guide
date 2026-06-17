@@ -69,27 +69,22 @@ dialog::backdrop{background:rgba(36,20,48,.45);backdrop-filter:blur(3px)}
 .hotspot{
   position:absolute;
   transform:translate(-50%,-50%);
-
-  width:8%;
-  aspect-ratio:2.25 / 1;
-
+  width:7.2%;
+  height:4.8%;
   padding:0;
   border-radius:999px;
   border:2px solid rgba(184,137,53,.95);
-  background:rgba(255,250,240,.86);
+  background:rgba(255,250,240,.72);
   color:var(--purple);
-
-  font-size:clamp(7px,1.45vw,18px);
+  font-size:clamp(6px,1.05vw,15px);
   font-weight:bold;
-  letter-spacing:.05em;
-
+  letter-spacing:.03em;
   cursor:pointer;
-  box-shadow:
-    0 0 0 .35vw rgba(255,255,255,.35),
-    0 .4vw 1vw rgba(77,48,103,.18);
-
+  box-shadow:0 0 0 .18vw rgba(255,255,255,.35),0 .25vw .7vw rgba(77,48,103,.16);
   z-index:5;
   touch-action:manipulation;
+  white-space:nowrap;
+  overflow:hidden;
 }
 
   .hint{
