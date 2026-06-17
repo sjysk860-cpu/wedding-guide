@@ -34,10 +34,98 @@ dialog::backdrop{background:rgba(36,20,48,.45);backdrop-filter:blur(3px)}
 .selected strong{color:white}
 .close{width:100%;border:0;background:#5a3b87;color:white;padding:14px;font-size:16px;cursor:pointer}
 .note{text-align:center;color:#6f5a4d;font-size:13px;margin-top:8px}
-@media(max-width:640px){
-  .hotspot{min-width:54px;min-height:32px;padding:4px 7px;font-size:10px}
-  .wrap{padding-left:4px;padding-right:4px}
-  h1{font-size:28px}
+@media (max-width: 640px) {
+
+  header{
+    padding:18px 14px 10px;
+  }
+
+  .chapter{
+    font-size:13px;
+  }
+
+  h1{
+    font-size:34px;
+    margin:4px 0 10px;
+  }
+
+  .sub{
+    font-size:18px;
+    line-height:1.8;
+    padding:0 14px;
+  }
+
+  .wrap{
+    padding:8px 14px 26px;
+  }
+
+  /* 席次表を少し小さく */
+  .map{
+    width:92%;
+    margin:0 auto;
+    border-radius:14px;
+  }
+
+  /* 卓ボタンを小さく */
+  .hotspot{
+    min-width:48px;
+    min-height:28px;
+    padding:3px 6px;
+    font-size:9px;
+    border-width:1.5px;
+    box-shadow:
+      0 0 0 2px rgba(255,255,255,.38),
+      0 4px 10px rgba(77,48,103,.14);
+  }
+
+  .hint{
+    font-size:15px;
+    line-height:1.7;
+    padding:0 14px;
+  }
+
+  /* 卓詳細をスクロール可能に */
+  dialog{
+    width:92vw;
+    max-height:82vh;
+    overflow:hidden;
+  }
+
+  .modal-body{
+    max-height:58vh;
+    overflow-y:auto;
+    -webkit-overflow-scrolling:touch;
+    padding:16px;
+  }
+
+  .modal-head{
+    padding:16px 14px 10px;
+  }
+
+  .modal-head h2{
+    font-size:26px;
+  }
+
+  .round-table{
+    width:220px;
+    height:220px;
+  }
+
+  .seat{
+    width:68px;
+    min-height:36px;
+    font-size:10px;
+  }
+
+  .guest{
+    font-size:14px;
+    padding:9px 10px;
+  }
+
+  .close{
+    position:sticky;
+    bottom:0;
+  }
 }
 </style>
 </head>
