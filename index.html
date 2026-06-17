@@ -303,7 +303,7 @@ function openTable(key){
     seat.style.left = pos.left + 'px';
     seat.style.top = pos.top + 'px';
     seat.dataset.name = name;
-    seat.innerHTML = name.replace(" 様","").replace("様","").replace(" ちゃん","");
+    seat.innerHTML = name;
     seat.addEventListener('click', () => selectSeatByName(name));
     round.appendChild(seat);
   });
