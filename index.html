@@ -136,15 +136,24 @@ dialog::backdrop{background:rgba(36,20,48,.45);backdrop-filter:blur(3px)}
   }
 
   .round-table{
-    width:220px;
-    height:220px;
-  }
+  width:260px;
+  height:260px;
+  margin:0 auto 26px;
+}
 
-  .seat{
-    width:68px;
-    min-height:36px;
-    font-size:10px;
-  }
+.seat{
+  width:58px;
+  min-height:58px;
+  padding:4px;
+  border-radius:50%;
+  font-size:9px;
+  line-height:1.15;
+}
+
+.seat strong{
+  font-size:15px;
+  margin-bottom:2px;
+}
 
   .guest{
     font-size:14px;
@@ -210,9 +219,21 @@ const TABLES = {
   "CHIP": ["今井 梨佳 様", "津村 育美 様", "林 愛美 様", "安田 千尋 様", "安田 大貴 様"], "MAX": ["工藤 賢太 様", "工藤 雅子 様", "工藤 スミエ 様", "勝又 千晴 様", "勝又 洋貴 様", "勝又 絹代 様", "勝又 千晶 様"]};
 
 function seatPosition(i,n){
-  const cx=125, cy=125, r=118;
-  const angle=(-90+(360/Math.max(n,1))*i)*Math.PI/180;
-  return {left:cx+Math.cos(angle)*r-39, top:cy+Math.sin(angle)*r-20};
+  const table = document.getElementById('roundTable');
+  const size = table.clientWidth;
+
+  const seatSize = window.innerWidth <= 640 ? 58 : 78;
+  const cx = size / 2;
+  const cy = size / 2;
+
+  const r = window.innerWidth <= 640 ? 118 : 118;
+
+  const angle = (-90 + (360 / Math.max(n,1)) * i) * Math.PI / 180;
+
+  return {
+    left: cx + Math.cos(angle) * r - seatSize / 2,
+    top: cy + Math.sin(angle) * r - seatSize / 2
+  };
 }
 
 function openTable(key){
