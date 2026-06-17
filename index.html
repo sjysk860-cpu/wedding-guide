@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Gathering - Seating Guide</title>
+<style>
+:root{--purple:#39236a;--lav:#b79ad7;--gold:#b88935;--cream:#fffaf0;}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Hiragino Mincho ProN","Yu Mincho",serif;background:linear-gradient(180deg,#f8f0ff,#fffaf0);color:#3c2b24}
+header{text-align:center;padding:22px 16px 12px}
+.chapter{color:var(--purple);letter-spacing:.16em;font-size:14px}
+h1{margin:6px 0 4px;font-size:32px;font-weight:500;color:var(--purple)}
+.sub{font-size:15px;color:#6f5a4d}
+.wrap{max-width:1160px;margin:0 auto;padding:10px 10px 34px}
+.map{position:relative;width:100%;border-radius:18px;overflow:hidden;box-shadow:0 14px 40px rgba(70,40,100,.18);border:2px solid rgba(184,137,53,.55);background:#fff}
+.map img{width:100%;display:block}
+.hotspot{position:absolute;transform:translate(-50%,-50%);min-width:80px;min-height:44px;padding:6px 10px;border-radius:999px;border:2px solid rgba(184,137,53,.95);background:rgba(255,250,240,.86);color:var(--purple);font-size:clamp(11px,1.8vw,18px);font-weight:bold;letter-spacing:.05em;cursor:pointer;box-shadow:0 0 0 4px rgba(255,255,255,.35),0 6px 16px rgba(77,48,103,.18);z-index:5;touch-action:manipulation;}
+.hotspot:hover,.hotspot:focus{background:rgba(87,57,134,.88);color:white;outline:none}
+.hint{text-align:center;margin:14px 0 0;font-size:14px;color:#6f5a4d}
+dialog{width:min(92vw,560px);border:none;border-radius:24px;padding:0;overflow:hidden;box-shadow:0 24px 70px rgba(45,25,65,.34);background:var(--cream)}
+dialog::backdrop{background:rgba(36,20,48,.45);backdrop-filter:blur(3px)}
+.modal-head{padding:20px 20px 14px;text-align:center;background:linear-gradient(135deg,#f8efff,#fffaf0);border-bottom:1px solid rgba(184,137,53,.35)}
+.modal-head .icon{font-size:26px;color:var(--gold)}
+.modal-head h2{margin:4px 0 2px;color:var(--purple);font-size:30px;letter-spacing:.06em}
+.modal-body{padding:20px}
+.round-table{width:250px;height:250px;margin:0 auto 18px;position:relative;border-radius:50%;border:2px solid rgba(184,137,53,.55);background:radial-gradient(circle,#fffdf7 0 45%,#f7ecff 46% 100%)}
+.seat{position:absolute;width:78px;min-height:40px;padding:5px 6px;border-radius:12px;background:white;border:1px solid rgba(184,137,53,.55);font-size:11px;text-align:center;line-height:1.25;box-shadow:0 4px 10px rgba(90,60,100,.12);cursor:pointer}
+.seat strong{color:var(--purple);display:block;font-size:12px}
+.guest-list{display:grid;gap:8px}
+.guest{padding:10px 12px;border:1px solid rgba(184,137,53,.35);border-radius:14px;background:white;cursor:pointer}
+.guest:hover{background:#f5effc}
+.selected{background:#5a3b87!important;color:white!important;border-color:#5a3b87!important}
+.selected strong{color:white}
+.close{width:100%;border:0;background:#5a3b87;color:white;padding:14px;font-size:16px;cursor:pointer}
+.note{text-align:center;color:#6f5a4d;font-size:13px;margin-top:8px}
+@media(max-width:640px){
+  .hotspot{min-width:54px;min-height:32px;padding:4px 7px;font-size:10px}
+  .wrap{padding-left:4px;padding-right:4px}
+  h1{font-size:28px}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="chapter">CHAPTER I</div>
+  <h1>The Gathering</h1>
+  <div class="sub">卓をタップすると、お席の詳細をご確認いただけます</div>
+</header>
+
+<div class="wrap">
+  <div class="map">
+    <img src="seating-guide.png" alt="席次表">
+    <button class="hotspot" style="left:41.0%;top:28.5%;" data-table="MICKEY">MICKEY</button>
+<button class="hotspot" style="left:61.0%;top:28.0%;" data-table="MINNIE">MINNIE</button>
+<button class="hotspot" style="left:35.4%;top:40.7%;" data-table="DONALD">DONALD</button>
+<button class="hotspot" style="left:50.4%;top:40.7%;" data-table="PLUTE">PLUTE</button>
+<button class="hotspot" style="left:63.8%;top:41%;" data-table="DAISY">DAISY</button>
+<button class="hotspot" style="left:44.0%;top:52.5%;" data-table="DALE">DALE</button>
+<button class="hotspot" style="left:57.8%;top:52.5%;" data-table="CHIP">CHIP</button>
+<button class="hotspot" style="left:44.0%;top:66%;" data-table="GOOFY">GOOFY</button>
+<button class="hotspot" style="left:58.0%;top:66%;" data-table="MAX">MAX</button>
+  </div>
+  <p class="hint">※お名前をタップすると、その席がハイライトされます</p>
+</div>
+
+<dialog id="seatDialog">
+  <div class="modal-head">
+    <div class="icon">✦</div>
+    <h2 id="tableTitle">MICKEY</h2>
+    <div id="tableCount"></div>
+  </div>
+  <div class="modal-body">
+    <div class="round-table" id="roundTable"></div>
+    <div class="guest-list" id="guestList"></div>
+    <p class="note">席番号は仮配置です。実際の座席順に合わせて調整できます。</p>
+  </div>
+  <button class="close" id="closeBtn">閉じる</button>
+</dialog>
+
+<script>
+const TABLES = {
+"MICKEY": ["谷口 昂汰 様", "中山 耕祐 様", "笹間 直人 様", "松沢 奈紀 様", "庄屋 祐紀 様", "下吉 智陽 様", "蓮葉 佳佑 様", "吉留 剛拡 様"],
+ "PLUTE": ["加藤 湖奈未 様", "黒木 優也 様", "黒木 美咲 様", "黒木 若葉 ちゃん", "松崎 将也 様", "湯地 涼介 様"], 
+ "DONALD": ["井 健剛 様", "黒江 健斗 様", "小林 凌 様", "下井倉 慶紀 様", "下村 太喜 様", "柏川 洋一 様", "福盛 涼 様", "松光 佳汰 様"], 
+ "DALE": ["荒武 覚 様", "平山 さおり 様", "堀之内 紫昭 様", "堀之内 みや子 様", "花薗 立子 様"], 
+ "GOOFY": ["花薗 寿紀 様", "花薗 隆太 様", "花薗 由梨奈 様", "花薗 穂風 ちゃん", "花薗 満寿美 様", "花薗 隆明 様"], 
+ "MINNIE": ["中野 龍介 様", "中野 峻 様", "伊橋 優人 様", "新竹 哲明 様"], 
+ "DAISY": ["小屋 あかり 様", "小屋 勇太 様", "津田 涼賀 様", "豊高 裕 様", "中島 健汰 様", "濱崎 愛菜 様", "濱崎 佑太 様", "林 民和 様", "武笠 真琴 様"],
+  "CHIP": ["今井 梨佳 様", "津村 育美 様", "林 愛美 様", "安田 千尋 様", "安田 大貴 様"], "MAX": ["工藤 賢太 様", "工藤 雅子 様", "工藤 スミエ 様", "勝又 千晴 様", "勝又 洋貴 様", "勝又 絹代 様", "勝又 千晶 様"]};
+
+function seatPosition(i,n){
+  const cx=125, cy=125, r=118;
+  const angle=(-90+(360/Math.max(n,1))*i)*Math.PI/180;
+  return {left:cx+Math.cos(angle)*r-39, top:cy+Math.sin(angle)*r-20};
+}
+
+function openTable(key){
+  const guests=TABLES[key]||[];
+  document.getElementById('tableTitle').textContent=key;
+  document.getElementById('tableCount').textContent=guests.length+"名";
+
+  const round=document.getElementById('roundTable');
+  const list=document.getElementById('guestList');
+  round.innerHTML="";
+  list.innerHTML="";
+
+  guests.forEach((name,i)=>{
+    const pos=seatPosition(i,guests.length);
+
+    const seat=document.createElement('button');
+    seat.type='button';
+    seat.className='seat';
+    seat.style.left=pos.left+'px';
+    seat.style.top=pos.top+'px';
+    seat.dataset.index=String(i);
+    seat.innerHTML=`<strong>${i+1}</strong>${name.replace(" 様","").replace("様","").replace(" ちゃん","")}`;
+    seat.addEventListener('click',()=>selectSeat(i));
+    round.appendChild(seat);
+
+    const row=document.createElement('button');
+    row.type='button';
+    row.className='guest';
+    row.dataset.index=String(i);
+    row.textContent=`${i+1}. ${name}`;
+    row.addEventListener('click',()=>selectSeat(i));
+    list.appendChild(row);
+  });
+
+  document.getElementById('seatDialog').showModal();
+}
+
+function selectSeat(index){
+  document.querySelectorAll('.seat,.guest').forEach(el=>{
+    el.classList.toggle('selected',Number(el.dataset.index)===index);
+  });
+}
+
+document.querySelectorAll('.hotspot').forEach(btn=>{
+  btn.addEventListener('click',()=>openTable(btn.dataset.table));
+  btn.addEventListener('touchstart',(e)=>{ e.preventDefault(); openTable(btn.dataset.table); }, {passive:false});
+});
+
+document.getElementById('closeBtn').addEventListener('click',()=>{
+  document.getElementById('seatDialog').close();
+});
+</script>
+</body>
+</html>
